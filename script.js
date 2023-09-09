@@ -5,7 +5,7 @@ var g_url = "https:/\/google.com/search?q=";
 var y_url = "https:/\/youtube.com/results?search_query=";
 var i_url = "https:/\/instagram.com/";
 
-var url = "";
+var url = g_url;
 
 var cookie = document.cookie;
 
@@ -44,7 +44,7 @@ function open_url() {
             document.cookie = "icon=bi-instagram";
         }
         
-        window.open(url + input.value, "_blank").focus();
+        window.open(url + input.value, "_blank");
         switch_icon();        
     }
     else 
