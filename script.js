@@ -1,5 +1,6 @@
 /* github username: @vikramv20 */
 
+
 var g_url = "https:/\/google.com/search?q=";
 var y_url = "https:/\/youtube.com/results?search_query=";
 var i_url = "https:/\/instagram.com/";
@@ -43,7 +44,7 @@ function open_url() {
             document.cookie = "icon=bi-instagram";
         }
         
-        window.open(url + input.value);
+        window.open(url + input.value, "_blank");
         switch_icon();        
     }
     else 
@@ -93,4 +94,3 @@ function switch_icon() {
     );
 }
 
-                    
