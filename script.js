@@ -21,6 +21,12 @@ for(var ck of cookie.split(";"))
 
 /* console.log(icon.classList.replace("bi-search", cookie));*/
 
+/* pressed the enter key */
+document.addEventListener("keypress", function(event) {
+    if (event.key === 'Enter') {
+        open_url();
+    }
+});
 
 function open_url() {
     if(input.value)
@@ -86,9 +92,10 @@ function switch_icon() {
         ],
     
         {
-            duration: 1000,
+            duration: 500,
             iterations: 3
         }
     );
 }
 
+        
