@@ -44,7 +44,7 @@ function open_url() {
             document.cookie = "icon=bi-instagram";
         }
         
-        window.open(url + input.value, "_blank");
+        window.open(url + input.value, "_blank").focus();
         switch_icon();        
     }
     else 
