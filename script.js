@@ -87,7 +87,7 @@ function switch_icon() {
     
         {
             duration: 1000,
-            iterations: Infinity
+            iterations: 3
         }
     );
 }
