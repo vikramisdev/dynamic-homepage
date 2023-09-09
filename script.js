@@ -19,8 +19,6 @@ for(var ck of cookie.split(";"))
     cookiedict.set(cks[0], cks[1]);
 }
 
-icon.classList.replace("bi-search", cookiedict.get("icon"))
-
 /* console.log(icon.classList.replace("bi-search", cookie));*/
 
 
