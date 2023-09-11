@@ -6,19 +6,43 @@ var i_url = "https:/\/instagram.com/";
 
 var url = g_url;
 
-var cookie = document.cookie;
-
-
 var body = document.getElementById("body");
 var icon = document.getElementById("search-icon");
 var input = document.getElementById("search");
 
-var cookiedict = new Map();
-for(var ck of cookie.split(";"))
-{
-    let cks = ck.trim().split('=');
-    cookiedict.set(cks[0], cks[1]);
+
+
+// cookie functions
+
+function setCookie(key, value) {
+    document.cookie = key + "=" + value;
+    
 }
+
+function getCookie(key) {
+    var cookiedict = new Map();
+    for(var ck of document.cookie.split(";"))
+    {
+        let cks = ck.trim().split('=');
+        cookiedict.set(cks[0], cks[1]);
+    }
+    return cookiedict.get(key);
+}
+
+
+// end of cookie functions
+
+var oldcounter = getCookie("counter");
+
+if(isNaN(oldcounter))
+    setCookie("counter", 1);
+else
+    setCookie("counter", Number(oldcounter) + 1);
+    
+var counter = document.querySelector(".counter");
+
+counter.innerText = "Your visited this site " + getCookie("counter") + " times";
+
 
 /* console.log(icon.classList.replace("bi-search", cookie));*/
 
@@ -119,6 +143,7 @@ $.getJSON('https:/\/newsapi.org/v2/top-headlines?country=us&apiKey=ce19cf45f5434
             if(data.articles[i].urlToImage === null)
                 continue;
 
+            prompt(data.articles[i].urlToImage);
 
             var news = document.createElement("div");
             var newsimg = document.createElement("img");
@@ -154,5 +179,6 @@ function open_setting() {
     
     alert("Not Implemented Yet.");
 }
+
 
 
