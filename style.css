@@ -120,5 +120,8 @@ body {
     font-size: 15px;
 }
 
-/* keyframes */
+.counter {
+    padding: 10px;
+    text-align: center;
+}
 
