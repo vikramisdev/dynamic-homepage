@@ -131,17 +131,19 @@ function switch_icon() {
 // get your own api at `newsapi.org`
 // by registering there.
 
-$.getJSON(`https:/\/newsapi.org/v2/top-headlines?country=us&apiKey=ce19cf45f5434a47862c18bccd256bfc`, 
+$.getJSON("https:/\/newsdata.io/api/1/news?apikey=pub_29106f05acffd4eecaca1c36a1cb0df485ce7&country=in&language=en&q=web%20series", 
     function(data) {
         
         newscontain = document.getElementById("news-container");
         
-        for(i=1; i<10; i++)
+        for(i=1; i<20; i++)
         {
             
             // avoid displaying null values
-            if(data.articles[i].urlToImage === null)
+            if(data.results[i].image_url === null)
                 continue;
+
+            console.log(data.results[i].image_url)
 
             var news = document.createElement("div");
             var newsimg = document.createElement("img");
@@ -155,11 +157,11 @@ $.getJSON(`https:/\/newsapi.org/v2/top-headlines?country=us&apiKey=ce19cf45f5434
             newslink.className = "news-link";
             
             
-            newsimg.src = data.articles[i].urlToImage;
+            newsimg.src = data.results[i].image_url;
             
-            newstitle.innerText = data.articles[i].title;
+            newstitle.innerText = data.results[i].title;
             
-            newslink.href = data.articles[i].url;
+            newslink.href = data.results[i].link;
             
             news.appendChild(newsimg);
             news.appendChild(newstitle);
