@@ -140,10 +140,11 @@ $.getJSON("https:/\/newsdata.io/api/1/news?apikey=pub_29106f05acffd4eecaca1c36a1
         {
             
             // avoid displaying null values
+            if(data.results[i] === null|| data.results[i] === undefined)
+                continue;
+                
             if(data.results[i].image_url === null)
                 continue;
-
-            console.log(data.results[i].image_url)
 
             var news = document.createElement("div");
             var newsimg = document.createElement("img");
