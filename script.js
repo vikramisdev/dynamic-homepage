@@ -1,6 +1,5 @@
 /* github username: @vikramv20 */
 
-var newsdata = "hi";
 var g_url = "https:/\/google.com/search?q=";
 var y_url = "https:/\/youtube.com/results?search_query=";
 var i_url = "https:/\/instagram.com/";
@@ -155,3 +154,5 @@ function open_setting() {
     
     alert("Not Implemented Yet.");
 }
+
+
