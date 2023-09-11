@@ -131,7 +131,7 @@ function switch_icon() {
 // get your own api at `newsapi.org`
 // by registering there.
 
-$.getJSON('https:/\/newsapi.org/v2/top-headlines?country=us&apiKey=ce19cf45f5434a47862c18bccd256bfc', 
+$.getJSON(`https:/\/newsapi.org/v2/top-headlines?country=us&apiKey=ce19cf45f5434a47862c18bccd256bfc`, 
     function(data) {
         
         newscontain = document.getElementById("news-container");
@@ -142,8 +142,6 @@ $.getJSON('https:/\/newsapi.org/v2/top-headlines?country=us&apiKey=ce19cf45f5434
             // avoid displaying null values
             if(data.articles[i].urlToImage === null)
                 continue;
-
-            prompt(data.articles[i].urlToImage);
 
             var news = document.createElement("div");
             var newsimg = document.createElement("img");
