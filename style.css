@@ -9,6 +9,7 @@ body {
     background: whitesmoke;
 }
 
+
 .searchbar h2 {
     text-align: center;
     
@@ -58,7 +59,7 @@ body {
    padding-left: 10px;
 }
 
-.searchbar li {
+.search-icon {
     height: 30px;
     width: 30px;
     border-radius: 50%;
@@ -111,6 +112,7 @@ body {
     text-align: right;
     margin-right: 10px;
     font-size: 15px;
+    transition: 1s display;
 }
 
 .discover {
@@ -125,3 +127,71 @@ body {
     text-align: center;
 }
 
+.dropmenu h4 {
+    padding: 10px;
+    background: black;
+    color: white;
+    font-weight: lighter;
+    text-align: left;
+}
+
+.dropmenu {
+    margin: 5px;
+    display: none;    
+    position: absolute;
+    border-radius: 10px;
+    background: black;
+    padding: 10px;
+}
+
+.button-info-arrow {
+    float: right;
+    font-size: 20px;
+    animation: button-info-arrow 2.5s infinite;
+    margin: 5px 10px 5px 10px;
+    color: cyan;
+    list-style: none;
+    font-size: 30px;
+}
+
+.button-info {
+    right: 5px;
+    position: fixed;
+    margin: 20px;
+    border-radius: 10px;
+    display: flex;
+    background: rgba(0,0,0,0.8);
+    align-items: center;
+}
+
+.button-info p {
+    width: 80px;
+    font-size: 15px;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.button-info-x {
+    margin-right: 20px;
+    list-style: none;
+    font-size: 30px;
+    background-color: red;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px 0 0 10px;
+}
+
+
+/* keyframes */
+@keyframes button-info-arrow {
+    0% {
+        opacity: 0;
+    }
+    
+    100% {
+        opacity: 1;
+    }
+}
