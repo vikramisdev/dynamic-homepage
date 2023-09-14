@@ -1,23 +1,29 @@
 /* github username: @vikramv20 */
 
+var settingIsOpen = false;
 var g_url = "https:/\/google.com/search?q=";
 var y_url = "https:/\/youtube.com/results?search_query=";
 var i_url = "https:/\/instagram.com/";
 
 var url = g_url;
 
-var body = document.getElementById("body");
 var icon = document.getElementById("search-icon");
 var input = document.getElementById("search");
-
+var setting = document.getElementById("setting");
+var dropmenu = document.querySelector(".dropmenu");
+var body = document.querySelector("body");
+var dropmenucat = document.querySelectorAll(".dropmenu h4");
+var counter = document.querySelector(".counter");
+newscontain = document.getElementById("news-container");
+var notifycardcross = document.querySelector(".button-info-x");
+var notifycard = document.querySelector(".button-info");
 
 
 // cookie functions
-
 function setCookie(key, value) {
     document.cookie = key + "=" + value;
-    
 }
+
 
 function getCookie(key) {
     var cookiedict = new Map();
@@ -28,31 +34,34 @@ function getCookie(key) {
     }
     return cookiedict.get(key);
 }
+// end
 
 
-// end of cookie functions
 
+// counter increment
 var oldcounter = getCookie("counter");
 
 if(isNaN(oldcounter))
     setCookie("counter", 1);
 else
     setCookie("counter", Number(oldcounter) + 1);
-    
-var counter = document.querySelector(".counter");
 
-counter.innerText = "Your visited this site " + getCookie("counter") + " times";
+counter.innerText = "Your visited this site " + getCookie("counter") + " times today !";
+// end
 
 
-/* console.log(icon.classList.replace("bi-search", cookie));*/
 
-/* pressed the enter key */
+// enable enter key from virtual keyboard
 document.addEventListener("keypress", function(event) {
     if (event.key === 'Enter') {
         open_url();
     }
 });
+// end
 
+
+
+// open google, youtube, instagram urls
 function open_url() {
     if(input.value)
     {
@@ -74,13 +83,16 @@ function open_url() {
         }
         
         window.open(url + input.value, "_blank");
-        switch_icon();        
+        animate_icon();        
     }
     else 
         console.log(input.value);
 }
+//
 
 
+
+// change search button icon
 function changeicon() {
     iconlist = icon.classList;
 
@@ -109,11 +121,13 @@ function changeicon() {
         url = g_url;
         input.placeholder = "Search it";
     }
-    
 }
+// end
 
 
-function switch_icon() {  
+
+// animate search icons
+function animate_icon() {  
     icon.animate(
         [
             { transform: "rotate(360deg)" },
@@ -125,16 +139,20 @@ function switch_icon() {
         }
     );
 }
+// end
+
 
 
 // don't use my news api key :)
 // get your own api at `newsapi.org`
 // by registering there.
 
+// generate news templates
 $.getJSON("https:/\/newsdata.io/api/1/news?apikey=pub_29106f05acffd4eecaca1c36a1cb0df485ce7&country=in&language=en&q=web%20series", 
     function(data) {
+        var newscollect = document.createElement("div");
         
-        newscontain = document.getElementById("news-container");
+        newscollect.className = "news-collect";
         
         for(i=1; i<20; i++)
         {
@@ -157,6 +175,7 @@ $.getJSON("https:/\/newsdata.io/api/1/news?apikey=pub_29106f05acffd4eecaca1c36a1
             newstitle.className = "news-title";
             newslink.className = "news-link";
             
+            news.style.display = "block";
             
             newsimg.src = data.results[i].image_url;
             
@@ -168,18 +187,104 @@ $.getJSON("https:/\/newsdata.io/api/1/news?apikey=pub_29106f05acffd4eecaca1c36a1
             news.appendChild(newstitle);
             
             newslink.appendChild(news);
-            
-            newscontain.appendChild(newslink);
+            newscollect.appendChild(newslink);
          }
+         newscontain.appendChild(newscollect);
     }
-);
+)
+// end
 
 
-function open_setting() {
-    var setting = document.getElementById("setting");
+
+// open drop menu on setting icon click
+setting.addEventListener("click", function() {
+    if (dropmenu.style.display == "block")
+    {    
+        dropmenu.style.display = "none";                
+    }
+    else 
+    {
+        dropmenu.style.display = "block";       
+    }
     
-    alert("Not Implemented Yet.");
+})
+// end
+
+
+
+// close drop menu on screen move
+body.addEventListener("touchmove", function() {
+    if(dropmenu.style.display == "block")
+        dropmenu.style.display = "none";
+})
+// end
+
+
+
+// add event listeners for 4 dropmenu buttons
+for (cat of dropmenucat) {
+    cat.addEventListener("click", function(event)
+        {
+            var btntext = event.srcElement.textContent;
+            
+            if(btntext == "Manage activity")
+            {
+                alert("its activity");
+            }
+            else if(btntext == "Manage interests")
+            {
+                alert("its interests");
+            }
+            else if(btntext == "Learn more")
+            {
+                alert("its Learn more");
+            }
+            else if(btntext == "Turn off")
+            {
+                news_off();
+            }
+            else if(btntext == "Turn on")
+            {
+                news_on();
+            }
+        }
+    )
+}
+// end
+
+
+
+// dropmenu all fucntions
+function news_off() {
+    var newscollect = document.querySelector(".news-collect");
+    
+    var dropmenucat = document.querySelectorAll(".dropmenu h4");
+    
+    newscollect.style.display = "none";
+    dropmenucat[3].innerText = "Turn on";
 }
 
+function news_on() {
+    var newscollect = document.querySelector(".news-collect");
+    
+    var dropmenucat = document.querySelectorAll(".dropmenu h4");
+
+    newscollect.style.display = "block";
+    dropmenucat[3].innerText = "Turn off";
+}
+// end
 
 
+
+// hide search button info card
+notifycardcross.addEventListener("click", function() {
+    notifycard.style.display = "none";
+})
+// end
+
+
+// auto remove search button info card
+function removeInfoCard() {
+    notifycard.style.display = "none";
+}
+setTimeout(removeInfoCard, 5000);
