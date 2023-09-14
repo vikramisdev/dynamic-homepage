@@ -34,6 +34,10 @@ function getCookie(key) {
     }
     return cookiedict.get(key);
 }
+
+function delCookie(key, value) {
+    document.cookie = key + "=" + "; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+}
 // end
 
 
@@ -279,8 +283,15 @@ function news_on() {
 // hide search button info card
 notifycardcross.addEventListener("click", function() {
     notifycard.style.display = "none";
+    setCookie("infocard", 1);
 })
+
+var infocard = getCookie("infocard");
+console.log(infocard)
+if(infocard == 1)
+    notifycard.style.display = "none";
 // end
+
 
 
 // auto remove search button info card
@@ -288,3 +299,4 @@ function removeInfoCard() {
     notifycard.style.display = "none";
 }
 setTimeout(removeInfoCard, 5000);
+// end
