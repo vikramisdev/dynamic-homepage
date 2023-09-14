@@ -17,11 +17,14 @@ var counter = document.querySelector(".counter");
 newscontain = document.getElementById("news-container");
 var notifycardcross = document.querySelector(".button-info-x");
 var notifycard = document.querySelector(".button-info");
+var searchName = document.querySelector(".searchbar h2");
+var infocard = getCookie("infocard");
+
 
 
 // cookie functions
 function setCookie(key, value) {
-    document.cookie = key + "=" + value;
+    document.cookie = key + "=" + value + ";" + "Path=/;";
 }
 
 
@@ -35,8 +38,9 @@ function getCookie(key) {
     return cookiedict.get(key);
 }
 
-function delCookie(key, value) {
-    document.cookie = key + "=" + "; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+function delCookie(key) {
+   var text = key + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; Path=/;";
+   document.cookie = text;
 }
 // end
 
@@ -258,6 +262,12 @@ for (cat of dropmenucat) {
 
 
 
+// reload web pages dynamic name touch
+searchName.addEventListener("click", function() {
+    location.reload();
+})
+
+
 // dropmenu all fucntions
 function news_off() {
     var newscollect = document.querySelector(".news-collect");
@@ -285,11 +295,16 @@ notifycardcross.addEventListener("click", function() {
     notifycard.style.display = "none";
     setCookie("infocard", 1);
 })
+// end
 
-var infocard = getCookie("infocard");
+
+
+// show info card only once
 console.log(infocard)
 if(infocard == 1)
     notifycard.style.display = "none";
+else 
+    notifycard.style.display = "flex";
 // end
 
 
