@@ -1,5 +1,5 @@
 <html> 
- <head>
+    <head>
          <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
          <link rel="stylesheet" type="text/css" href="style.css">
          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
@@ -13,15 +13,33 @@
        <div class="searchbar">
            <h2>Search</h2>
            <div class="searchmain">
-           <input class="search" type="search" name="search" id="search" placeholder="Search it">
-           <li ondblclick="changeicon()" id="search-icon" onclick="open_url()" class="search-icon bi-search"></li>
+               <input class="search" type="search" name="search" id="search" placeholder="Search it">
+               <li ondblclick="changeicon()" id="search-icon" onclick="open_url()" class="search-icon bi-search"></li>
            </div>
+           
+           <div class="button-info">
+               <li class="button-info-x bi-x"></li>
+               <p class="button-info-text">
+                   Double Tap The Search Button
+               </p>
+               
+               <li class="button-info-arrow bi-arrow-up-circle-fill"></li>
+               
+           </div>
+           
        </div>
        
        <div id="news-container" class="news-container">
            <div class="discover-container">
                <h5 class="discover">Discover</h5>
-               <li onclick="open_setting()" id="setting" class="setting bi-gear-fill">
+               <li id="setting" class="setting bi-gear-fill">           
+                   <div class="dropmenu">
+                       <h4>Manage activity</h4>
+                       <h4>Manage interests</h4>
+                       <h4>Learn more</h4>
+                       <h4>Turn off</h4>
+                   </div>
+               </li>
            </div>
        </div>
 
