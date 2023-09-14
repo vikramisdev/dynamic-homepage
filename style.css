@@ -159,7 +159,7 @@ body {
     position: fixed;
     margin: 20px;
     border-radius: 10px;
-    display: flex;
+    display: none;
     background: rgba(0,0,0,0.8);
     align-items: center;
 }
