@@ -110,13 +110,13 @@ body {
     list-style: none;
     width: 50%;
     text-align: right;
-    margin-right: 10px;
+    margin-right: 20px;
     font-size: 15px;
     transition: 1s display;
 }
 
 .discover {
-    margin-left: 10px;
+    margin-left: 20px;
     width: 50%;
     text-align: left;
     font-size: 15px;
@@ -198,8 +198,9 @@ body {
 
 /* media queries for responsiveness */
 @media screen and (min-width: 480px) {
-    .news-container {
+    .news-collect {
         display: grid;
-        grid-template-columns: 3;
+        grid-template-columns: 32% 32% 32%;
+        column-gap: 20px;
     }
 }
