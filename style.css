@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 body {
@@ -10,15 +11,18 @@ body {
 }
 
 
+.container {
+    margin: 20px;
+}
+
+
 .searchbar h2 {
     text-align: center;
     
 }
 
 .searchbar {
-    margin-top: 100px;
-    margin-bottom: 100px;
-    
+    margin: 100px 10px 100px 10px;
 }
 
 .searchbar h2 {
@@ -28,10 +32,8 @@ body {
 }
 
 .searchbar h2:before {
-    content: "Dynamic ";
-    background: linear-gradient(to right bottom, #f32170, #ff6b08, #cf23cf, #eedd44);
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
+    content: "DreamHex ";
+    color: coral;
 }
 
 .searchmain {
@@ -47,6 +49,11 @@ body {
     font-size: 20px;
     border: none;
     box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.1);
+}
+
+.search h2 {
+    user-select: none;
+    cursor: default;
 }
 
 .search:hover {
@@ -73,6 +80,11 @@ body {
     justify-content: center;
 }
 
+.search-icon:hover {
+    outline: 4px solid lightblue;
+    outline-offset: 3px;
+}
+
 .news-container {
     padding: 20px 0 20px 0;
     text-align: center;
@@ -89,12 +101,16 @@ body {
 .news-img {
     width: 100%;
     border-radius: 10px 10px 0 0;
+    height: 200px;
 }
 
 .news-title {
     padding: 10px;
     background: white;
     border-radius: 0 0 10px 10px;
+    height: 80px;
+    display: flex;
+    align-items: center;
 }
 
 .news-link {
@@ -104,6 +120,7 @@ body {
 
 .discover-container {
     display: flex;
+    width: 100%;
 }
 
 .setting {
@@ -200,7 +217,11 @@ body {
 @media screen and (min-width: 480px) {
     .news-collect {
         display: grid;
-        grid-template-columns: 32% 32% 32%;
-        column-gap: 20px;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+
+    .search {
+        width: 25rem;
     }
 }
