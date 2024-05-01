@@ -31,11 +31,6 @@ body {
     font-weight: bolder;
 }
 
-.searchbar h2:before {
-    content: "DreamHex ";
-    color: coral;
-}
-
 .searchmain {
     display: flex;
     justify-content: center;
