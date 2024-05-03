@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    list-style: none;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -34,16 +35,19 @@ body {
 .searchmain {
     display: flex;
     justify-content: center;
+    background: #0f0f0a10;
+    padding: 10px;
+    border-radius: 50px;
 }
 
 .search {
     height: 50px;
-    width: 250px;
+    width: 230px;
     padding: 20px;
     border-radius: 50px;
     font-size: 20px;
     border: none;
-    box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.1);
+    /*box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.1);*/
 }
 
 .search h2 {
@@ -59,6 +63,30 @@ body {
 .search::placeholder {
    font-size: 18px;
    padding-left: 10px;
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.searchbar-setting {
+  font-size: 25px;
+}
+
+.searchbar-header {
+  width: calc(100% - 10px);
+  text-align: right;
+  padding: 5px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.searchbar-header img, .searchbar-header li {
+  margin-left: 20px;
+}
+
+.profile-picture {
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
 }
 
 .search-icon {
@@ -83,7 +111,7 @@ body {
 .news-container {
     padding: 20px 0 20px 0;
     text-align: center;
-    margin: 20px;
+    margin: 10px;
 }
 
 .news {
@@ -106,6 +134,7 @@ body {
     height: 80px;
     display: flex;
     align-items: center;
+    overflow: hidden;
 }
 
 .news-link {
@@ -219,4 +248,27 @@ body {
     .search {
         width: 25rem;
     }
+}
+
+
+/* bottom sheets */
+
+.profile-bottomsheet, .settings-bottomsheet {
+  position: fixed;
+  width: 100%;
+  bottom: -100%;
+  left: 0px;
+  height: 100%;
+}
+
+.profile-bottomsheet-useless, .settings-bottomsheet-useless {
+  height: 30%;
+  padding: 30px;
+}
+
+.profile-bottomsheet-important, .settings-bottomsheet-important {
+  border-radius: 20px 20px 0px 0px;
+  height: 70%;
+  background: lightblue;
+  padding: 50px;
 }

@@ -1,4 +1,4 @@
-/* github username: @vikramv20 */
+/* github username: @vikramisdev */
 
 var settingIsOpen = false;
 var g_url = "https:/\/google.com/search?q=";
@@ -19,6 +19,9 @@ var notifycardcross = document.querySelector(".button-info-x");
 var notifycard = document.querySelector(".button-info");
 var searchName = document.querySelector(".searchbar h2");
 var infocard = getCookie("infocard");
+
+var settings_bottomsheet_open = false;
+var profile_bottomsheet_open = false;
 
 
 
@@ -190,3 +193,73 @@ $.getJSON("https:/\/newsdata.io/api/1/news?apikey=pub_29106f05acffd4eecaca1c36a1
 // end
 
 
+// handle bottom sheets
+function toggle_bottomsheet(bottom_value, settings=true) {
+  var transition_length = 300;
+  
+  if(settings) {
+  $(".settings-bottomsheet").animate({
+            bottom: bottom_value
+        }, 
+  transition_length);
+  }
+  else {
+    $(".profile-bottomsheet").animate({
+            bottom: bottom_value
+        }, 
+  transition_length);
+  }
+}
+
+$(document).ready(function() {
+    // Cache DOM elements
+    var $settingsBottomSheet = $(".settings-bottomsheet");
+    var $profileBottomSheet = $(".profile-bottomsheet");
+    var $searchbarSetting = $(".searchbar-setting");
+    var $searchbarProfile = $(".searchbar-profile");
+
+    // Constants
+    var TRANSITION_LENGTH = 300;
+
+    // Variables to track bottom sheet state
+    var isSettingsOpen = false;
+    var isProfileOpen = false;
+
+    // Function to toggle bottom sheet
+    function toggleBottomSheet($bottomSheet, isOpen) {
+        var bottomValue = isOpen ? "0px" : "-100%";
+        $bottomSheet.animate({ bottom: bottomValue }, TRANSITION_LENGTH);
+    }
+
+    // Event listener for settings button
+    $searchbarSetting.click(function() {
+        if (isProfileOpen) {
+            toggleBottomSheet($profileBottomSheet, false);
+            isProfileOpen = false;
+        }
+        toggleBottomSheet($settingsBottomSheet, !isSettingsOpen);
+        isSettingsOpen = !isSettingsOpen;
+    });
+
+    // Event listener for profile button
+    $searchbarProfile.click(function() {
+        if (isSettingsOpen) {
+            toggleBottomSheet($settingsBottomSheet, false);
+            isSettingsOpen = false;
+        }
+        toggleBottomSheet($profileBottomSheet, !isProfileOpen);
+        isProfileOpen = !isProfileOpen;
+    });
+
+    // Event listener for closing settings bottom sheet
+    $(".settings-bottomsheet-useless").click(function() {
+        toggleBottomSheet($settingsBottomSheet, false);
+        isSettingsOpen = false;
+    });
+
+    // Event listener for closing profile bottom sheet
+    $(".profile-bottomsheet-useless").click(function() {
+        toggleBottomSheet($profileBottomSheet, false);
+        isProfileOpen = false;
+    });
+});
