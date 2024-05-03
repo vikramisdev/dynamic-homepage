@@ -16,20 +16,15 @@ body {
     margin: 20px;
 }
 
-
-.searchbar h2 {
-    text-align: center;
-    
-}
-
 .searchbar {
     margin: 100px 10px 100px 10px;
 }
 
 .searchbar h2 {
-    margin: 30px;
+    margin: 30px 15px;
     font-size: 25px;
     font-weight: bolder;
+    text-align: center;
 }
 
 .searchmain {
@@ -83,6 +78,12 @@ body {
   margin-left: 20px;
 }
 
+.searchbar-title-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .profile-picture {
   border-radius: 50%;
   width: 28px;
@@ -101,6 +102,11 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.searchbar-darkmode-icon {
+  font-size: 20px;
+  color: orange;
 }
 
 .search-icon:hover {

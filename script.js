@@ -209,6 +209,8 @@ function toggle_bottomsheet(bottom_value, settings=true) {
         }, 
   transition_length);
   }
+  
+ 
 }
 
 $(document).ready(function() {
@@ -263,3 +265,32 @@ $(document).ready(function() {
         isProfileOpen = false;
     });
 });
+
+function isDayTime() {
+  const hours = new Date().getHours();
+
+// Check if it is between 6am and 8pm.
+const isDaytime = hours >= 6 && hours < 20;
+
+// Display the result.
+if (isDaytime) {
+  return true;
+} else {
+  return false;
+}
+}
+// end
+
+//start
+var darkmodeIcon = $(".searchbar-darkmode-icon");
+
+if(!isDayTime()) {
+  darkmodeIcon.removeClass("bi-sun-fill");
+  darkmodeIcon.addClass("bi-moon-stars-fill");
+  darkmodeIcon.css("color", "lightblue");
+}
+else {
+  darkmodeIcon.removeClass("bi-moon-stars-fill");
+  darkmodeIcon.addClass("bi-sun-fill");
+  darkmodeIcon.css("color", "orange");
+}
