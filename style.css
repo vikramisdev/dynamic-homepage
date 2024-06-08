@@ -275,6 +275,73 @@ body {
 .profile-bottomsheet-important, .settings-bottomsheet-important {
   border-radius: 20px 20px 0px 0px;
   height: 70%;
-  background: lightblue;
-  padding: 50px;
+  background: linear-gradient(rgba(0, 0, 0, 0.7) 30%, rgba(255, 255, 256, 0.7) 70%);
+  backdrop-filter: blur(8px);
+  padding: 15px 10px 10px 10px;
+}
+
+/* profile bottomsheet */
+.profile-bottomsheet-header {
+  margin: 10px;
+  padding: 10px;
+  display: flex;
+  justify-content: right;
+}
+
+.profile-bottomsheet-header li {
+  padding: 10px;
+  background: white;
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-bottomsheet-important {
+  text-align: center;
+}
+
+.profile-bottomsheet-profile-pic {
+  width: 150px;
+  border-radius: 50%;
+  margin-top: 20px;
+}
+
+.profile-bottomsheet-name {
+  margin: 20px 10px 10px 10px;
+}
+
+
+/* settings bottomsheet */
+
+.settings-bottomsheet-header-title {
+  margin: 15px 15px 30px 10px;
+  color: whitesmoke;
+  opacity: 0.8;
+}
+
+.toggle-news-visibility {
+  margin: 10px;
+  display: grid;
+  grid-template-columns: 80% 20%;
+  align-items: center;
+}
+
+.toggle-news-visibility-switch {
+  font-size: 40px;
+}
+
+.toggle-news-visibility-text {
+  color: whitesmoke;
+}
+
+/* applies when class inserted in elements  */
+.switch-green {
+  color: lightgreen;
+}
+
+.switch-normal {
+  
 }
