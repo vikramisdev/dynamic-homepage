@@ -215,6 +215,7 @@ function toggle_bottomsheet(bottom_value, settings = true) {
 
 $(document).ready(function() {
   // Cache DOM elements
+  var $search = $(".search");
   var $settingsBottomSheet = $(".settings-bottomsheet");
   var $profileBottomSheet = $(".profile-bottomsheet");
   var $searchbarSetting = $(".searchbar-setting");
@@ -235,6 +236,41 @@ $(document).ready(function() {
     var bottomValue = isOpen ? "0px" : "-100%";
     $bottomSheet.animate({ bottom: bottomValue }, TRANSITION_LENGTH);
   }
+
+  var suggestions = new Bloodhound({
+    datumTokenizer: Bloodhound.tokenizers.whitespace,
+    queryTokenizer: Bloodhound.tokenizers.whitespace,
+    remote: {
+      url: 'https://api.datamuse.com/sug?s=%QUERY',
+      wildcard: '%QUERY'
+    }
+  });
+
+  suggestions.initialize();
+
+  // Initialize typeahead
+  $search.typeahead(
+  {
+    hint: true,
+    highlight: true,
+    minLength: 1
+  },
+  {
+    name: 'suggestions',
+    source: suggestions,
+    display: function(data) {
+      return data.word; // Display only the word
+    },
+    templates: {
+      suggestion: function(data) {
+        return '<div>' + data.word + '</div>';
+        console.log(data.word)
+      }
+    }
+  }).bind('typeahead:render', function(ev, s) {
+    console.log(s.length); // Log suggestions to the console
+  });
+
 
   // Event listener for settings button
   $searchbarSetting.click(function() {
@@ -281,12 +317,12 @@ $(document).ready(function() {
     fileInput.addEventListener("change", function(event) {
       let files = event.target.files;
       let file;
-      
-      if(files.length > 0) {
+
+      if (files.length > 0) {
         file = files[0];
       }
-      
-      if(file.type.includes("image")) {
+
+      if (file.type.includes("image")) {
         const fileUrl = URL.createObjectURL(file);
         prompt("Url", fileUrl);
       }
@@ -301,7 +337,7 @@ $(document).ready(function() {
   else {
     $profileBottomsheetName.text("Unknown");
   }
-  
+
   $(".profile-bottomsheet-name").click(function() {
     var name = prompt("Enter you name: ");
     if (name) {
@@ -309,21 +345,21 @@ $(document).ready(function() {
       $(this).text(name);
     }
   });
-  
+
   $(".profile-bottomsheet-header li").click(function() {
     toggleBottomSheet($profileBottomSheet, false);
     isProfileOpen = false;
   });
-  
-  if(getCookie("news-enabled") != null) {
-    if(getCookie("news-enabled") == "true") {
+
+  if (getCookie("news-enabled") != null) {
+    if (getCookie("news-enabled") == "true") {
       $newsContainer.show();
     }
-    else  {
+    else {
       $newsContainer.hide();
     }
   }
-  
+
   $(".toggle-news-visibility-switch").click(function() {
     // clicked to turn off the discovery
 

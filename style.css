@@ -17,7 +17,7 @@ body {
 }
 
 .searchbar {
-    margin: 100px 10px 100px 10px;
+    margin: 30px 10px 100px 10px;
 }
 
 .searchbar h2 {
@@ -344,4 +344,25 @@ body {
 
 .switch-normal {
   
+}
+
+/* tt menu */
+.tt-menu {
+  margin-top: 20px;
+  margin-left: 0px;
+  background: lightblue;
+  width: 270px;
+  height: 60px;
+  overflow: scroll;
+  padding: 10px;
+  border-radius: 0px 0px 10px 10px;
+}
+
+.tt-suggestion {
+  padding: 5px 0px;
+}
+
+.tt-suggestion::after {
+  content: "⬈";
+  float: right;
 }
