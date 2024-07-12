@@ -1,74 +1,32 @@
-<html> 
-    <head>
-         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-         <link rel="stylesheet" type="text/css" href="style.css">
-         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-         <link rel="preconnect" href="https://fonts.googleapis.com">
-         <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/corejs-typeahead/1.3.1/typeahead.bundle.min.js"></script>
-         
- </head> 
- <body id="body"> 
-   
-   <div class="container">
-     <div class="searchbar-header">
-       <img class="profile-picture searchbar-profile" src="res/person.jpg" alt="">
-       <li class="searchbar-setting bi-gear-fill" ></li>
-     </div>
-       <div class="searchbar">
-           <div class="searchbar-title-container">
-             <li class="searchbar-darkmode-icon bi-sun-fill"></li>
-             <h2>Doodle Search</h2>
-           </div> 
-           <div class="searchmain">
-               <input class="typeahead search" type="search" name="search" id="search" placeholder="Search it">
-               <li ondblclick="changeicon()" id="search-icon" onclick="open_url()" class="search-icon bi-search"></li>
-           </div>
-           
-       </div>
-       
-       <div class="discover-container">
-               <h5 class="discover">Discover</h5>
-       </div>
-       
-       <div id="news-container" class="news-container">
-           
-       </div>
-       
-       <div class="settings-bottomsheet" >
-         <div class="settings-bottomsheet-useless">
-           
-         </div>
-         <div class="settings-bottomsheet-important">
-           <div class="settings-bottomsheet-header">
-             <h2 class="settings-bottomsheet-header-title">Settings</h2>
-           </div>
-           
-           <div class="settings-bottomsheet-settings">
-             <div class="toggle-news-visibility">
-               <h3 class="toggle-news-visibility-text">Turn off the Discovery</h3><li class="toggle-news-visibility-switch bi-toggle-on switch-green"></li>
-             </div>
-           </div>
-         </div>
-       </div>
-       
-       <div class="profile-bottomsheet" >
-         <div class="profile-bottomsheet-useless">
-           
-         </div>
-         <div class="profile-bottomsheet-important">
-           <div class="profile-bottomsheet-header">
-             <li class="bi-x-circle-fill"></li>
-           </div>
-           
-           <img class="profile-bottomsheet-profile-pic" src="res/person.jpg" alt="person.jpg">
-           <h3 class="profile-bottomsheet-name">John Doe</h3>
-           
-         </div>
-       </div>
-       
-
-       
-  <script src="script.js"></script>
- </body> 
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Doodle</title>
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  
+  <body>
+    <div class="container">
+      <div class="searchbar-container">
+        <h1 class="searchbar-title">Doodle</h1>     
+        <div class="searchbar">
+          <input class="searchbar-input" type="text" placeholder="Search or type URL">
+          <li onclick="activateMicrophone();" class="searchbar-microphone bi-mic-fill"></li>   
+          <li class="searchbar-image-search bi-image-alt"></li>
+        </div>
+      </div>
+      
+      <div class="recent-links-container">
+        
+      </div>
+      
+      <div class="discover">
+        <h3 class="discover-title">Discover</h3>
+        
+        <div class="news-container"></div>
+      </div>
+    </div>
+  </body>
 </html>
