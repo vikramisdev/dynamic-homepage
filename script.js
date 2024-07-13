@@ -18,6 +18,48 @@ async function activateMicrophone() {
     }
 }
 
+function searchGoogleByImage(imageUrl) {
+    // Construct the Google search URL for the image
+    const searchUrl = `https://www.google.com/searchbyimage?image_url=${encodeURIComponent(imageUrl)}`;
+
+    // Open the URL in a new tab/window
+    window.open(searchUrl, '_blank');
+}
+
+
+function selectImage() {
+    // Create an input element
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = 'image/*';
+    input.style.display = 'none'; // Hide the input element
+
+    // Add event listener for file selection
+    input.addEventListener('change', function() {
+        const file = this.files[0];
+
+        if (file) {
+            const reader = new FileReader();
+
+            reader.addEventListener('load', function() {
+                // Get the Base64-encoded image data
+                const imageData = reader.result.split(',')[1];
+                
+                // Construct the Google search URL for the image
+                const searchUrl = `https://www.google.com/searchbyimage?image_url=data:image/jpeg;base64,${imageData}`;
+
+                // Open the URL in a new tab/window
+                window.open(searchUrl, '_blank');
+            });
+
+            reader.readAsDataURL(file);
+        }
+    });
+
+    // Trigger the file selection dialog
+    input.click();
+}
+
 
 const URL = 'https://rss.cnn.com/rss/cnn_topstories.rss'; // Example RSS feed
 var newscontain = document.getElementById("news-container");
