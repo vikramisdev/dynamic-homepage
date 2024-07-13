@@ -110,3 +110,11 @@ $.getJSON("https:/\/newsdata.io/api/1/news?apikey=pub_291062b6363bed9f324d58b77d
     newscontain.appendChild(newscollect);
   }
 )
+
+function searchQueryOnGoogle() {
+  var inputText = document.getElementById("searchbar-input");
+  var query= inputText.value;
+  var googleUrl = "https://google.com/search?q=";
+  
+  window.open(googleUrl + query);
+}

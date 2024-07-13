@@ -17,7 +17,7 @@
       <div class="searchbar-container">
         <h1 class="searchbar-title">Doodle</h1>     
         <div class="searchbar">
-          <input class="searchbar-input" type="text" placeholder="Search or type URL">
+          <input id="searchbar-input" onkeypress="searchQueryOnGoogle()" class="searchbar-input" type="text" placeholder="Search or type URL">
           <li onclick="activateMicrophone();" class="searchbar-microphone bi-mic-fill"></li>   
           <li onclick="selectImage()" class="searchbar-image-search bi-image-alt"></li>
         </div>
