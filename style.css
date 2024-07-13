@@ -31,7 +31,7 @@ body {
 }
 
 .searchbar-input {
-  width: calc(100vw - 170px);
+  width: calc(100vw - 175px);
   height: 25px;
   border: none;
   background: transparent;
@@ -44,8 +44,15 @@ body {
 }
 
 .searchbar-microphone, .searchbar-image-search {
-  padding: 10px;
+  padding: 10px 12px;
   font-size: 20px;
+  height: 25px;
+  width: 25px;
+  border-radius: 100px;
+}
+
+.searchbar-microphone:active, .searchbar-image-search:active {
+  background: #F8F7FF;
 }
 
 .recent-links-container {
