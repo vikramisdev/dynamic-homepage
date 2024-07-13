@@ -118,3 +118,52 @@ function searchGoogleByQuery() {
   
   window.open(googleUrl + query);
 }
+
+function startSpeechRecognition() {
+    var micColor = "";
+    // Check if the browser supports the Web Speech API
+    if (!('webkitSpeechRecognition' in window)) {
+        alert('Your browser does not support this feature.');
+        return;
+    }
+
+    // Initialize the speech recognition object
+    const recognition = new webkitSpeechRecognition();
+    recognition.lang = 'en-US';
+    recognition.continuous = false;
+    recognition.interimResults = false;
+
+    recognition.onstart = () => {
+        micColor = $(".searchbar-microphone").css("color");
+      
+        
+        $(".searchbar-microphone").css({
+          background: "#F8F7FF",
+          color: "black"
+        });
+    };
+
+    recognition.onresult = (event) => {
+        const result = event.results[0][0].transcript;
+        $(".searchbar-input").val(result);
+    };
+
+    recognition.onerror = (event) => {
+        $(".searchbar-microphone").css({
+          background: "transparent",
+          color: micColor
+        });
+        console.error('Speech recognition error:', event.error);
+    };
+
+    recognition.onend = () => {
+        $(".searchbar-microphone").css({
+          background: "transparent",
+          color: micColor
+        });
+        console.log('Speech recognition ended');
+    };
+
+    // Start speech recognition
+    recognition.start();
+}

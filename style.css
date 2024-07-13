@@ -51,9 +51,9 @@ body {
   border-radius: 100px;
 }
 
-.searchbar-microphone:active, .searchbar-image-search:active {
+/*.searchbar-microphone:active, .searchbar-image-search:active {
   background: #F8F7FF;
-}
+}*/
 
 .recent-links-container {
   width: calc(100vw - 30px);
@@ -120,7 +120,7 @@ body {
   }
   
   .black-text, .news-title {
-    color: white;
+    color: ghostwhite;
   }
   
   .white-text {
@@ -132,5 +132,3 @@ body {
   }
  
 }
-
-
