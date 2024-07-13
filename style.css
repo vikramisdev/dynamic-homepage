@@ -6,7 +6,7 @@
 }
 
 body {
-  background: #f5f9ff;
+  background: #F8F7FF;
 }
 
 .searchbar-container {
@@ -16,12 +16,14 @@ body {
 
 .searchbar-title {
   margin: 60px 0px 20px 0px;
+  font-family: "Playwrite PE", cursive;
+  font-style: normal;
 }
 
 .searchbar {
   padding: 12px 25px;
-  background: #C8DBFA;
-  width: calc(100vw - 80px);
+  background: #FFEEDD;
+  width: calc(100vw - 100px);
   border-radius: 50px;
   margin: auto;
   display: flex;
@@ -29,7 +31,7 @@ body {
 }
 
 .searchbar-input {
-  width: calc(100vw - 150px);
+  width: calc(100vw - 170px);
   height: 25px;
   border: none;
   background: transparent;
@@ -64,8 +66,41 @@ body {
 
 .discover-title {
   margin-bottom: 10px;
+  margin-left: 20px;
+  font-size: 16px;
+  font-family: "Abel", sans-serif;
 }
 
 .news-container {
+  background: transparent;
+}
+
+/* news */
+
+.news {
+  width: 100vw;
+}
+
+.news-collect {
+  display: grid;
+  row-gap: 40px;
+}
+
+.news-link {
+  text-decoration: none;
+  color: black;
   background: red;
+  width: calc(100vw - 30px);
+  border-radius: 0 0 20px 20px;
+}
+
+.news-img {
+  width: calc(100vw - 30px);
+}
+
+.news-title {
+  width: calc(100vw - 50px);
+  border-radius: 0px 0px 20px 20px;
+  text-align: center;
+  padding: 10px 10px;
 }

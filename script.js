@@ -17,3 +17,54 @@ async function activateMicrophone() {
         console.error('Error accessing the microphone:', error);
     }
 }
+
+
+const URL = 'https://rss.cnn.com/rss/cnn_topstories.rss'; // Example RSS feed
+var newscontain = document.getElementById("news-container");
+
+$.getJSON("https:/\/newsdata.io/api/1/news?apikey=pub_291062b6363bed9f324d58b77d67c23b6864e&country=in&language=en&q=web%20series",
+  function(data) {
+    var newscollect = document.createElement("div");
+
+    newscollect.className = "news-collect";
+    
+    
+
+    for (i = 1; i < 20; i++)
+    {
+
+      // avoid displaying null values
+      if (data.results[i] === null || data.results[i] === undefined)
+        continue;
+
+      if (data.results[i].image_url === null)
+        continue;
+
+      var news = document.createElement("div");
+      var newsimg = document.createElement("img");
+      var newstitle = document.createElement("p");
+      var newslink = document.createElement("a");
+
+
+      news.className = "news";
+      newsimg.className = "news-img";
+      newstitle.className = "news-title";
+      newslink.className = "news-link";
+
+      news.style.display = "block";
+
+      newsimg.src = data.results[i].image_url;
+
+      newstitle.innerText = data.results[i].title;
+
+      newslink.href = data.results[i].link;
+
+      news.appendChild(newsimg);
+      news.appendChild(newstitle);
+
+      newslink.appendChild(news);
+      newscollect.appendChild(newslink);
+    }
+    newscontain.appendChild(newscollect);
+  }
+)
