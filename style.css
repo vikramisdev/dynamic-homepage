@@ -113,3 +113,24 @@ body {
   text-align: center;
   padding: 20px 20px;
 }
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #1E1E1E;
+  }
+  
+  .black-text, .news-title {
+    color: white;
+  }
+  
+  .white-text {
+    color: black;
+  }
+  
+  .searchbar, .news-link {
+    background: #2b2b2b;
+  }
+ 
+}
+
+
