@@ -7,31 +7,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#f8f7ff">
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1e1e1e">
-    
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playwrite+PE:wght@100..400&display=swap" rel="stylesheet">
   </head>
-  
+
   <body>
     <div class="container">
       <div class="searchbar-container">
-        <h1 class="black-text searchbar-title">Doodle</h1>     
+        <h1 class="black-text searchbar-title">Doodle</h1>
         <div class="searchbar">
           <input id="searchbar-input" onkeypress="searchGoogleByQuery()" class="black-text searchbar-input" type="text" placeholder="Search or type URL">
-          <li onclick="startSpeechRecognition();" class="black-text searchbar-microphone bi-mic-fill"></li>   
+          <li onclick="startSpeechRecognition();" class="black-text searchbar-microphone bi-mic-fill"></li>
           <li onclick="selectImage()" class="black-text searchbar-image-search bi-image-alt"></li>
         </div>
       </div>
-      
+
       <div class="recent-links-container">
-        
+
       </div>
-      
+
       <div class="discover">
         <h3 class="black-text discover-title">Discover</h3>
-        
+
         <div id="news-container" class="news-container"></div>
       </div>
     </div>

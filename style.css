@@ -5,6 +5,12 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+:root {
+  --width: calc(100% - var(--news-link-margin)*2);
+  --news-link-margin: 0px 20px;
+  --news-img-height: 15rem;
+}
+
 body {
   background: #F8F7FF;
 }
@@ -23,7 +29,6 @@ body {
 .searchbar {
   padding: 12px 25px;
   background: #FFEEDD;
-  width: calc(100vw - 100px);
   border-radius: 50px;
   margin: auto;
   display: flex;
@@ -56,19 +61,18 @@ body {
 }*/
 
 .recent-links-container {
-  width: calc(100vw - 30px);
   background: white;
   margin: auto;
   margin-top: 10px;
   border-radius: 20px;
-  display: flex;
+  display: none;
   align-items: center;
 }
 
 .discover {
   margin: auto;
   margin-top: 30px;
-  width: calc(100vw - 30px);
+  padding: 20px 0px;
 }
 
 .discover-title {
@@ -78,14 +82,10 @@ body {
   font-family: "Abel", sans-serif;
 }
 
-.news-container {
-  margin-bottom: 20px;
-}
-
 /* news */
 
-.news {
-  width: calc(100vw - 30px);
+.news-container {
+  margin-bottom: 20px;
 }
 
 .news-collect {
@@ -97,38 +97,66 @@ body {
   text-decoration: none;
   color: black;
   background: #fff8f2;
-  width: calc(100vw - 30px);
   border-radius: 20px;
   box-shadow: 0px 1px 10px rgba(0,0,0,0.3);
+  width: var(--width);
+  margin: var(--news-link-margin);
 }
 
 .news-img {
-  width: calc(100vw - 30px);
   border-radius: 20px 20px 0 0;
+  width: 100%;
+  height: var(--news-img-height);
+  object-fit: cover;
+  object-position: top;
 }
 
 .news-title {
-  width: calc(100vw - 60px);
   border-radius: 0px 0px 20px 20px;
   text-align: center;
-  padding: 20px 20px;
+  width: 100% - 40px;
+  padding: 40px 20px;
 }
 
 @media (prefers-color-scheme: dark) {
   body {
     background: #1E1E1E;
   }
-  
+
   .black-text, .news-title {
     color: ghostwhite;
   }
-  
+
   .white-text {
     color: black;
   }
-  
+
   .searchbar, .news-link {
     background: #2b2b2b;
   }
- 
+
+}
+
+/* Responsive Styles */
+@media screen and (min-width: 770px) {
+  .searchbar-container {
+    padding: 100px 0px;
+  }
+
+  .searchbar {
+    width: 50%;
+  }
+
+  .news-collect {
+    grid-template-columns: 33% 33% 33%;
+  }
+
+  .news-container {
+    padding: 20px;
+  }
+
+  .discover-title {
+    padding: 0px 20px;
+    font-size: 25px;
+  }
 }
