@@ -54,6 +54,7 @@ body {
   height: 25px;
   width: 25px;
   border-radius: 100px;
+  cursor: pointer;
 }
 
 /*.searchbar-microphone:active, .searchbar-image-search:active {
